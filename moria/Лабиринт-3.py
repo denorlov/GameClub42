@@ -4,6 +4,15 @@ pygame.mixer.init()
 
 print("\n" * 100)
 
+
+def end_of_game():
+    print("Вы погибли. Нажмите enter для продолжения")
+    pygame.mixer.music.load('end.mp3')
+    pygame.mixer.music.play()
+    input()
+    print("\n" * 100)
+
+
 while True:
     pygame.mixer.music.load('in-the-dark.mp3')
     pygame.mixer.music.play(-1)
@@ -31,11 +40,7 @@ while True:
         elif "назад" in answer or "2" in answer:
             print("Вы испугались, развернулись и побежали со всех ног."
                   " Барлог вышел вам навстречу и начал кидать в вас камнями и огенными шарами.")
-            print("Вы погибли. Нажмите enter для продолжения")
-            pygame.mixer.music.load('end.mp3')
-            pygame.mixer.music.play()
-            input()
-            print("\n" * 100)
+            end_of_game()
 
         else:
             print("Не понятно, что вы хотите сделать. До свидания.")
@@ -44,11 +49,7 @@ while True:
         print("Вы вышли в левый корридор. Прошли по нему и попали в большой темный зал "
               "с подземным озером в центре. Что-то хлюпает у вас под ногами. "
               "Поздравляю, вас засосала опасная трясина")
-        pygame.mixer.music.load('end.mp3')
-        pygame.mixer.music.play()
-        print("Вы погибли. Нажмите enter для продолжения")
-        input()
-        print("\n" * 100)
+        end_of_game()
 
     elif 'вправо' in answer or '3' in answer:
         print("Вы вышли в правый корридор. Прошли по нему и попали в большой темный зал "

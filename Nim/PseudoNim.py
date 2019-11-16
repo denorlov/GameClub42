@@ -9,13 +9,12 @@ print("Перед вами лежит", stones, "камней. Можно бра
 print("Выигрывает тот, кто забрал последний камень из кучи.")
 print("Если ты выиграешь я пропущу тебя дальще. Если проиграешь, то погибнешь")
 print()
-print("Наша куча:", "* " * stones)
 
 while stones > 0:
     comp_stones_taken = random.randrange(1, 3)
     print("Я беру", comp_stones_taken, "камня")
     stones -= comp_stones_taken
-    print("Наша куча:", "* " * stones)
+    print("Куча:", "* " * stones)
 
     if stones == 0:
         print("Ха-ха-ха! Я победил")
@@ -33,4 +32,4 @@ while stones > 0:
         print("Эх, твоя взяла, ты победил!")
         break
 
-    print("Наша куча:", "* " * stones)
+    print("Куча:", "* " * stones)
