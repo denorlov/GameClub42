@@ -1,7 +1,7 @@
 import random
 
 random.seed()
-stones = random.randrange(15, 25)
+stones = random.randrange(8, 12)
 comp_stones_taken = 0
 user_stones_taken = 0
 
@@ -11,7 +11,7 @@ print("Если ты выиграешь я пропущу тебя дальще.
 print()
 
 while stones > 0:
-    comp_stones_taken = random.randrange(1, 3)
+    comp_stones_taken = random.randrange(1, min(stones, 3))
     print("Я беру", comp_stones_taken, "камня")
     stones -= comp_stones_taken
     print("Куча:", "* " * stones)
@@ -33,3 +33,4 @@ while stones > 0:
         break
 
     print("Куча:", "* " * stones)
+
