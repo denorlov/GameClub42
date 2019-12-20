@@ -17,7 +17,8 @@ def happy_end():
     print("\n" * 100)
 
 def get_answer(variants):
-    print("Вы можете пойти ", variants)
+    print()
+    print("Вы можете", variants)
     answer = input("Ваш выбор?").strip().lower()
     while answer not in variants:
         print("Не понятно, что вы хотите сделать. Введите правильную команду.")
