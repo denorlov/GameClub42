@@ -19,8 +19,8 @@ print(''' Только под вечер, в пасмурных сумерках
 
 while True:
     print()
-    # print("debug>>", " prev_location=", prev_location, ", location=", location, sep="")
-    # print()
+    print("debug>>", " prev_location=", prev_location, ", location=", location, sep="")
+    print()
 
     if location == "начало":
         pygame.mixer.music.load('sounds/in-the-dark.mp3')

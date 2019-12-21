@@ -4,6 +4,7 @@ def end_of_game():
     print("Счастливо оставаться, не забудьте выключиться свет перед тем как лечь в кровать. Конец.")
     pygame.mixer.music.load('sounds/end-cut.mp3')
     pygame.mixer.music.play()
+    print("Press enter to continue")
     input()
     print("\n" * 100)
 
