@@ -1,5 +1,14 @@
-from moria.functions import get_answer, end_of_game, happy_end
 import pygame
+
+def get_answer(variants):
+    print()
+    print("Вы можете", variants)
+    answer = input("Ваш выбор?").strip().lower()
+    while answer not in variants:
+        print("Не понятно, что вы хотите сделать. Введите правильную команду.")
+        answer = input("Ваш выбор?").strip().lower()
+    return answer
+
 
 pygame.mixer.init()
 
@@ -134,7 +143,13 @@ while True:
 
         if "встав" in answ or "3" in answ:
             print('''Гэндальф подошел к стене, вставил ключ в скажину и с трудом повернул его. \nДверь со скрипом поддалась и отворилась.''')
-            happy_end()
+            print("Счастливый конец первой части! До новых встречь!")
+            pygame.mixer.music.load('sounds/happy-end.mp3')
+            pygame.mixer.music.play()
+            print("Нажмите enter для продолжения")
+            input("\n" * 100)
+            exit()
+
 
         elif "осмо" in answ or "2" in answ:
             print('''Ничего особенного не нашлось. Похоже, нужен ключ от двери.''')
@@ -145,8 +160,12 @@ while True:
 
 
     if next_location == "выход":
-        end_of_game()
-        break
+        print("Счастливо оставаться, не забудьте выключиться свет перед тем как лечь в кровать. Конец.")
+        pygame.mixer.music.load('sounds/end-cut.mp3')
+        pygame.mixer.music.play()
+        print("Press enter to continue")
+        input()
+        continue
 
     prev_location = location
     location = next_location
