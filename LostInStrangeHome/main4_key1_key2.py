@@ -78,7 +78,9 @@ while True:
             rooms[currentRoom]['item']:
         print('Кажется, здесь есть ' + str(rooms[currentRoom]['item']))
 
-    if 'item' in rooms[currentRoom] and 'monster' in rooms[currentRoom]['item'] and not 'яд' in rooms[currentRoom]['item']:
+    if 'item' in rooms[currentRoom] and \
+            'monster' in rooms[currentRoom]['item'] and \
+            not 'яд' in inventory:
         print('Ты повстречался с монстром... Конец игры!')
         break
 
@@ -100,10 +102,13 @@ while True:
     if command == 'идти':
         direction = move[1]
         if direction in rooms[currentRoom]:
-            if currentRoom == 'Спальня' and direction == 'восток' and not 'ключ' in rooms[currentRoom]['item']:
+            if currentRoom == 'Спальня' and\
+                    direction == 'восток' and\
+                    not 'ключ' in inventory:
                 print('Чтобы пройти в дверь из Спальни на запад нужен ключ!')
                 continue
-            if currentRoom == "Коридор" and direction == 'юг' and not 'ключ2' in rooms[currentRoom]['item']:
+            if currentRoom == "Коридор" and direction == 'юг' and\
+                    not 'ключ2' in inventory:
                 print('Чтобы пройти в дверь из Коридора на юг нужен ключ2!')
                 continue
 

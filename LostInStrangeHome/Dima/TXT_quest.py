@@ -19,7 +19,7 @@ rooms = {
         'description': "На кухне на плите стоит пара кастрюл. И в одной из кастрюль что-то жарится!"
                        " Вонь стоит ужасная. Кто, интересно, может есть такую тухлятину?!",
         'север': 'Зал',
-        'item': ['monster', 'ключ2']
+        'item': ['monster', 'отмычка']
     },
 
     'Коридор': {
@@ -41,7 +41,7 @@ rooms = {
                        " Постойте, постойте, банки и склянки какие-то."
                        " Попробуем понюхать, что в них?",
         'запад': "Спальня",
-        'item': ['яд']
+        'item': ['топор лесника']
     },
 
     'Спальня': {
@@ -57,7 +57,7 @@ if name is None:
     name = input("Как тебя зовут, странник? ")
 
     print('''
-Ваша задача попасть в Сад имея на руках Ключ и банку Яда.
+Ваша задача попасть в Сад имея на руках Ключ и Топором лесника.
 Да, забыл сказать. Не попадайся монстрам! 
 И еще. Каждый раз, когда ты перемещаешься в другую комнату, 
 ты устаешь и твое здоровье уменьшается на 1.
@@ -77,10 +77,10 @@ while True:
     if "item" in rooms[currentRoom] and not 'monster' in rooms[currentRoom]['item'] and \
             rooms[currentRoom]['item']:
         print('Кажется, здесь есть ' + str(rooms[currentRoom]['item']))
-
+        
     if 'item' in rooms[currentRoom] and \
             'monster' in rooms[currentRoom]['item'] and \
-            not 'яд' in inventory:
+            not 'топор лесника' in inventory:
         print('Ты повстречался с монстром... Конец игры!')
         break
 
@@ -88,7 +88,7 @@ while True:
         print('У тебя совсем не осталось сил... Ты умер!')
         break
 
-    if currentRoom == 'Сад' and 'ключ' in inventory and 'яд' in inventory:
+    if currentRoom == 'Сад' and 'ключ' in inventory and 'топор лесника' in inventory:
         print('Тебе удалось выбраться из этого жуткого дома... Ты победил!')
         break
 
@@ -102,6 +102,16 @@ while True:
     if command == 'идти':
         direction = move[1]
         if direction in rooms[currentRoom]:
+            if currentRoom == 'Спальня' and\
+                    direction == 'восток' and\
+                    not 'ключ' in inventory:
+                print('Чтобы пройти в дверь из Спальни на запад нужен ключ!')
+                continue
+            if currentRoom == "Коридор" and direction == 'юг' and\
+                    not 'отмычка' in inventory:
+                print('Чтобы пройти в дверь из Коридора на юг нужен отмычка!')
+                continue
+
             health = health - 1
             currentRoom = rooms[currentRoom][direction]
         else:
