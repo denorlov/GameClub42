@@ -52,7 +52,7 @@ while True:
             next_location = "болото"
 
     elif location == "болото":
-        pygame.mixer.music.load('sounds/atmosbasement.mp3_.flac')
+        pygame.mixer.music.load('sounds/in-the-dark.mp3')
         pygame.mixer.music.play(-1)
 
         print('''Вы пришли к древнему туманному болоту. Над поверхностью стоит пар. Где-то далеко слышно, как булькает и капает.''')
@@ -122,7 +122,7 @@ while True:
                 next_location = "болото"
 
     elif location == "дверь":
-        pygame.mixer.music.load('sounds/rock_breaking.flac')
+        pygame.mixer.music.load('sounds/in-the-dark.mp3')
         pygame.mixer.music.play()
 
         print('''Хранители вышли к отвесно стене. Гэндальф опять посмотрел  на Стену. 
