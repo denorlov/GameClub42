@@ -2,7 +2,7 @@ import pygame
 import time
 
 pygame.mixer.init()
-pygame.mixer.music.load('./sound/.mp3/Boards Of Canada_-_Music Is Math.mp3')
+pygame.mixer.music.load('./sound/Boards Of Canada_-_Music Is Math.mp3')
 pygame.mixer.music.play(-1)
 
 print('____________________________ДОКУМЕНТАЦИЯ____________________________')
